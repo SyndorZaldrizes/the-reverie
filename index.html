@@ -1,81 +1,498 @@
-<!-- index.html – Home page with updated navigation and layout -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>Civic Engagement Experiment – Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description"
-        content="Home page for Nathan Sanchez’s Civic Engagement Experiment. Explore the research project, youth civic lab, journal memos, and more." />
-  <link rel="stylesheet" href="styles.css" />
+  <meta
+    name="description"
+    content="Civic Engagement Experiment & Lab – a living hub for democracy research, civic projects, and experimental studies."
+  />
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1020;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.1);
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --card-bg: #0f172a;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.45);
+      --radius-lg: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(
+        to bottom,
+        rgba(2, 6, 23, 0.95),
+        rgba(2, 6, 23, 0.85)
+      );
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0.6rem 1.25rem 0.85rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .nav-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-tagline {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-align: right;
+      max-width: 280px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .nav-link {
+      padding: 0.35rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      border: 1px solid transparent;
+      color: var(--muted);
+      background: transparent;
+      transition:
+        background 0.18s ease,
+        border-color 0.18s ease,
+        color 0.18s ease,
+        transform 0.08s ease;
+    }
+
+    .nav-link:hover {
+      background: var(--accent-soft);
+      border-color: rgba(56, 189, 248, 0.4);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .nav-link.current {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #020617;
+      font-weight: 600;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 1.75rem 1.25rem 2.75rem;
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.4fr);
+      gap: 2.5rem;
+      align-items: flex-start;
+    }
+
+    .hero {
+      background: radial-gradient(circle at top left, #111827 0, #020617 55%);
+      border-radius: 28px;
+      padding: 1.75rem 1.75rem 1.9rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: -120px;
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.08), transparent 60%),
+        radial-gradient(circle at bottom right, rgba(56, 189, 248, 0.06), transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-kicker {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-title {
+      font-size: clamp(1.9rem, 3vw, 2.4rem);
+      line-height: 1.1;
+      margin: 0 0 0.4rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      color: var(--muted);
+      margin: 0 0 1.4rem;
+      max-width: 34rem;
+    }
+
+    .hero-description {
+      font-size: 0.92rem;
+      color: #e5e7eb;
+      line-height: 1.6;
+      margin-bottom: 1.75rem;
+      max-width: 38rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .pill {
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .pill strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 1.1rem 1.1rem 1.2rem;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .card h2 {
+      margin: 0 0 0.75rem;
+      font-size: 1rem;
+    }
+
+    .card p {
+      margin: 0 0 0.9rem;
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0.65rem;
+    }
+
+    .section-link {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+      padding: 0.6rem 0.75rem;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      background: rgba(15, 23, 42, 0.9);
+      transition:
+        background 0.18s ease,
+        border-color 0.18s ease,
+        transform 0.08s ease;
+      cursor: pointer;
+    }
+
+    .section-link:hover {
+      background: var(--accent-soft);
+      border-color: rgba(56, 189, 248, 0.45);
+      transform: translateY(-1px);
+    }
+
+    .section-link-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .section-link-desc {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .meta-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: grid;
+      gap: 0.3rem;
+    }
+
+    .meta-list li strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 0.9rem 1.25rem 1.4rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    footer a {
+      color: var(--accent);
+    }
+
+    @media (max-width: 900px) {
+      .page {
+        grid-template-columns: minmax(0, 1fr);
+        padding-top: 1.4rem;
+      }
+
+      .hero {
+        padding: 1.4rem 1.3rem 1.6rem;
+      }
+
+      .sidebar {
+        margin-top: -0.3rem;
+      }
+
+      .nav-tagline {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links {
+        max-height: 76px;
+        overflow-y: auto;
+        padding-right: 0.3rem;
+      }
+
+      .nav-shell {
+        padding-inline: 0.9rem;
+      }
+
+      .page {
+        padding-inline: 0.9rem;
+      }
+    }
+  </style>
 </head>
-<body class="home-page">
-  <div class="layout">
-    <aside class="sidebar">
-      <div class="brand">
-        <h1>Civic Engagement</h1>
-        <p>Experiment &amp; Lab</p>
+<body>
+  <header>
+    <div class="nav-shell">
+      <div class="nav-top">
+        <div class="logo">
+          Civic <span>Engagement</span> Lab
+        </div>
+        <div class="nav-tagline">
+          A living lab for democracy research, civic experiments, and youth engagement.
+        </div>
       </div>
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="journal-memo.html">Journal Memo</a>
-        <a href="dissertation.html">Dissertation</a>
-        <a href="civic-engagement-project.html">Civic Engagement Project</a>
-        <a href="study-details.html">Study Details</a>
-        <a href="civic-lab.html">Civic Lab</a>
-        <a href="notes.html">Notes &amp; Sandbox</a>
-        <a href="questionnaires.html">Questionnaires</a>
-        <a href="references.html">References</a>
-        <a href="team-contact.html">Team &amp; Contact</a>
-        <a href="https://syndorzaldrizes.github.io/Syndor/" target="_blank" rel="noopener noreferrer">MSL Site</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html" class="nav-link current">Home</a>
+        <a href="journal-memo.html" class="nav-link">Journal Memo</a>
+        <a href="dissertation.html" class="nav-link">Dissertation</a>
+        <a href="civic-engagement-project.html" class="nav-link">Civic Engagement Project</a>
+        <a href="study-details.html" class="nav-link">Study Details</a>
+        <a href="civic-lab.html" class="nav-link">Civic Lab</a>
+        <a href="notes-sandbox.html" class="nav-link">Notes &amp; Sandbox</a>
+        <a href="questionnaires.html" class="nav-link">Questionnaires</a>
+        <a href="references.html" class="nav-link">References</a>
+        <a href="team-contact.html" class="nav-link">Team &amp; Contact</a>
+        <a href="https://syndorzaldrizes.github.io/Syndor/" class="nav-link" target="_blank" rel="noopener">
+          MSL Site
+        </a>
       </nav>
-    </aside>
-    <main class="content">
-      <section class="hero">
-        <span class="eyebrow">Welcome</span>
-        <h2>Exploring how people learn democracy</h2>
-        <p>
-          This site is a living lab for understanding civic engagement. It’s part personal site,
-          part research notebook, and part playground for ideas. Here you’ll find polished
-          journal memos, youth‑oriented civic explainers, interactive prototypes, and notes on
-          everything from democratic theory to campaign field work.
-        </p>
+    </div>
+  </header>
+
+  <main>
+    <section class="page">
+      <div class="hero">
+        <div class="hero-inner">
+          <div class="hero-kicker">Civic Engagement Experiment &amp; Lab</div>
+          <h1 class="hero-title">Exploring how people learn democracy.</h1>
+          <p class="hero-subtitle">
+            Part personal site, part research notebook, part experimental playground.
+          </p>
+          <p class="hero-description">
+            This site is a living lab for understanding civic engagement. Here you’ll
+            find polished journal memos, youth-oriented civic explainers, interactive
+            prototypes, and notes on everything from democratic theory to campaign
+            field work. It’s also the master hub tying together my campus experiment,
+            Maryland Student Legislature work, and long-term research on democratic
+            erosion and civic education.
+          </p>
+          <div class="hero-meta">
+            <div class="pill">
+              <strong>Campus experiment:</strong>
+              democratic engagement at St. Mary’s College of Maryland.
+            </div>
+            <div class="pill">
+              <strong>Scope:</strong> essays, data, field notes, and public-facing explainers.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="sidebar">
         <div class="card">
-          <h3>Start your journey</h3>
-          <p class="small">Choose a section from the menu to dive in:</p>
-          <ul class="small">
-            <li>
-              <strong>Journal Memo:</strong> Finalized essays and proposals, like the dissertation
-              prospectus for my democracy research.
-            </li>
-            <li>
-              <strong>Dissertation:</strong> Ongoing academic work and findings from my senior thesis
-              on democracy and civic engagement (to be updated).
-            </li>
-            <li>
-              <strong>Civic Engagement Project:</strong> Kid‑friendly explainers and interactive
-              activities that make politics approachable.
-            </li>
-            <li>
-              <strong>Study Details:</strong> A deeper dive into the research design and methodology
-              behind the campus experiment.
-            </li>
-            <li>
-              <strong>Civic Lab:</strong> Learn about our consulting services and how to bring a
-              civic blueprint to your organization.
-            </li>
-            <li>
-              <strong>Notes &amp; Sandbox:</strong> Raw notes, rough ideas, and an AI‑powered
-              summarization tool for your own reading.
-            </li>
-            <li>
-              <strong>Questionnaires:</strong> Surveys and feedback forms for research projects
-              (participate and share your insights).
-            </li>
+          <h2>Start your journey</h2>
+          <p>
+            Pick a section to explore. Each page will evolve as the research,
+            projects, and experiments grow.
+          </p>
+          <div class="section-grid">
+            <a href="journal-memo.html" class="section-link">
+              <span class="section-link-title">Journal Memo</span>
+              <span class="section-link-desc">
+                Finalized essays and memos, including the democratic engagement
+                journal memo and other course-driven writing.
+              </span>
+            </a>
+            <a href="dissertation.html" class="section-link">
+              <span class="section-link-title">Dissertation</span>
+              <span class="section-link-desc">
+                Long-form academic work on democracy, civic engagement, and how
+                institutions shape political learning over time.
+              </span>
+            </a>
+            <a href="civic-engagement-project.html" class="section-link">
+              <span class="section-link-title">Civic Engagement Project</span>
+              <span class="section-link-desc">
+                Youth-friendly explainers, graphics, and interactive activities
+                that translate “politics” into something actually usable.
+              </span>
+            </a>
+            <a href="study-details.html" class="section-link">
+              <span class="section-link-title">Study Details</span>
+              <span class="section-link-desc">
+                Research design, hypotheses, survey instruments, and methods for
+                the campus-level democratic engagement experiment.
+              </span>
+            </a>
+            <a href="civic-lab.html" class="section-link">
+              <span class="section-link-title">Civic Lab</span>
+              <span class="section-link-desc">
+                A consulting-style space for civic blueprints: workshops, club
+                designs, and templates for other campuses or orgs.
+              </span>
+            </a>
+            <a href="notes-sandbox.html" class="section-link">
+              <span class="section-link-title">Notes &amp; Sandbox</span>
+              <span class="section-link-desc">
+                Rough notes, half-baked ideas, and an AI-assisted reading log for
+                articles, books, and datasets.
+              </span>
+            </a>
+            <a href="questionnaires.html" class="section-link">
+              <span class="section-link-title">Questionnaires</span>
+              <span class="section-link-desc">
+                Survey links, reflection forms, and feedback portals for participants.
+              </span>
+            </a>
+            <a href="references.html" class="section-link">
+              <span class="section-link-title">References</span>
+              <span class="section-link-desc">
+                Working bibliography for the democracy, civic education, and
+                political behavior literature.
+              </span>
+            </a>
+            <a href="team-contact.html" class="section-link">
+              <span class="section-link-title">Team &amp; Contact</span>
+              <span class="section-link-desc">
+                Who’s behind the project, how to get involved, and ways to
+                collaborate or support the work.
+              </span>
+            </a>
+            <a href="https://syndorzaldrizes.github.io/Syndor/" class="section-link" target="_blank" rel="noopener">
+              <span class="section-link-title">MSL Site</span>
+              <span class="section-link-desc">
+                The Maryland Student Legislature hub for bills, sessions, and the
+                SMCM delegation—linked to this experiment.
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>What this project is tracking</h2>
+          <ul class="meta-list">
+            <li><strong>Democratic erosion &amp; inequality:</strong> connecting theory to youth attitudes and behavior.</li>
+            <li><strong>Campus experiments:</strong> testing small-scale interventions in a real college environment.</li>
+            <li><strong>Field work:</strong> campaigns, Maryland General Assembly exposure, and organizational leadership.</li>
+            <li><strong>Media &amp; culture:</strong> how music, pop culture, and narratives shift civic imagination.</li>
           </ul>
         </div>
-      </section>
-    </main>
-  </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    Civic Engagement Experiment &nbsp;·&nbsp; Built as a living lab for democracy, research, and practice.
+    &nbsp;|&nbsp;
+    <a href="team-contact.html">Contact / Collaborate</a>
+  </footer>
 </body>
 </html>
