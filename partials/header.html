@@ -1,22 +1,22 @@
-<header class="site-header">
-  <div class="wrap header-row">
-    <a class="brand" href="./">
-      <span class="brand-main">The Reverie</span>
-      <span class="brand-sub">Research + Civic Lab</span>
-    </a>
-
-    <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-
-    <nav class="main-nav" aria-label="Primary navigation">
-      <a href="./" data-nav="home">Home</a>
-      <a href="pages/research/" data-nav="research">Research</a>
-      <a href="pages/civic-lab/" data-nav="lab">Civic Lab</a>
-      <a href="pages/altius/" data-nav="altius">ALTIUS</a>
-      <a href="pages/venture/" data-nav="venture">Venture</a>
-      <a href="pages/references/" data-nav="refs">References</a>
-      <a href="https://syndorzaldrizes.github.io/Syndor/" target="_blank" rel="noopener">MSL ↗</a>
-    </nav>
-  </div>
-</header>
+*** Begin Patch
+*** Update File: partials/header.html
+@@
+-    <a class="brand" href="./">
++    <a class="brand" href="/the-reverie/">
+       <span class="brand-main">The Reverie</span>
+       <span class="brand-sub">Research + Civic Lab</span>
+     </a>
+@@
+-       <a href="./" data-nav="home">Home</a>
+-       <a href="pages/research/" data-nav="research">Research</a>
+-       <a href="pages/civic-lab/" data-nav="lab">Civic Lab</a>
+-       <a href="pages/altius/" data-nav="altius">ALTIUS</a>
+-       <a href="pages/venture/" data-nav="venture">Venture</a>
+-       <a href="pages/references/" data-nav="refs">References</a>
++       <a href="/the-reverie/index.html" data-nav="home">Home</a>
++       <a href="/the-reverie/pages/research/" data-nav="research">Research</a>
++       <a href="/the-reverie/pages/civic-lab/" data-nav="lab">Civic Lab</a>
++       <a href="/the-reverie/pages/altius/" data-nav="altius">ALTIUS</a>
++       <a href="/the-reverie/pages/venture/" data-nav="venture">Venture</a>
++       <a href="/the-reverie/pages/references/" data-nav="refs">References</a>
+*** End Patch
