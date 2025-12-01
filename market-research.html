@@ -1,4 +1,4 @@
-<!-- market-research.html – New business venture page 3 (placeholder content) -->
+<!-- market-research.html – Market analysis & research for the venture (refactored and expanded) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +6,7 @@
   <title>Market &amp; Research – Civic Engagement Experiment</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description"
-        content="Market analysis and research for the WIP business venture tied to the Civic Engagement Experiment." />
+        content="Early market analysis, user research and competitive landscape informing the Civic Lab's potential venture." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body class="venture-page">
@@ -20,23 +20,125 @@
         <a href="index.html">Home</a>
         <a href="journal-memo.html">Journal Memo</a>
         <a href="dissertation.html">Dissertation</a>
-        <a href="civic-engagement-project.html">Civic Engagement Project</a>
-        <a href="notes.html">Notes &amp; Sandbox</a>
+        <a href="civicengagementproject.html">Civic Engagement Project</a>
+        <a href="study-details.html">Study Details</a>
         <a href="questionnaires.html">Questionnaires</a>
-        <a href="references.html">References</a>
+        <a href="civic-lab.html">Civic Lab</a>
         <a href="venture-overview.html">Venture Overview</a>
         <a href="product-prototype.html">Product Prototype</a>
-        <a href="market-research.html">Market &amp; Research</a>
+        <a href="market-research.html" class="active">Market &amp; Research</a>
         <a href="team-contact.html">Team &amp; Contact</a>
         <a href="https://syndorzaldrizes.github.io/Syndor/" target="_blank">MSL Site</a>
       </nav>
     </aside>
     <main class="content">
       <section>
-        <h2>Market &amp; Research</h2>
+        <h2>Market &amp; Research Insights</h2>
         <p>
-          (This page will contain market research, user research, or any data-driven insights informing the venture. 
-          It might include statistics about civic tech adoption, target demographics, or competitive analysis. Content to be added.)
+          Before you can build something useful, you have to know who might actually use it and
+          why they aren’t already satisfied. This page summarizes the early market research and
+          user interviews guiding the Civic Lab’s venture track. It’s less about spreadsheets and
+          more about patterns: where the demand is, where the gaps are, and which delusions we had
+          to abandon after talking to actual humans.
+        </p>
+      </section>
+
+      <section>
+        <h3>Potential User Segments</h3>
+        <p>
+          Our initial hypothesis was “everyone who cares about democracy will want this.” Reality
+          is more specific. These are the groups who responded with curiosity rather than glazed
+          eyes:
+        </p>
+        <ul>
+          <li><strong>Student governments &amp; delegations:</strong> Need clear procedures and ways to
+              train new members quickly.</li>
+          <li><strong>Campus clubs &amp; societies:</strong> Want to avoid the “tyranny of the few” and
+              spread decision‑making beyond officers.</li>
+          <li><strong>Educators &amp; staff:</strong> Looking for pre‑built activities that fit into a
+              30‑minute class block without derailing the syllabus.</li>
+          <li><strong>Youth programs &amp; after‑school groups:</strong> Crave engaging content that
+              doesn’t feel like recycled civics homework.</li>
+          <li><strong>Small nonprofits &amp; civic orgs:</strong> Need lightweight tools to run
+              deliberative meetings and capture member input without paying enterprise prices.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>What We Learned So Far</h3>
+        <p>
+          Talking to people (rather than talking to ourselves) produced a few recurring themes:
+        </p>
+        <ul>
+          <li><em>People are time‑poor.</em> Anything that takes longer than a meeting gets pushed
+              aside; prototypes must work in minutes, not hours.</li>
+          <li><em>Nobody reads PDFs.</em> Even earnest leaders admitted they rarely read their own
+              constitutions; interactive guides beat static documents.</li>
+          <li><em>Training is a bottleneck.</em> Clubs reinvent the wheel each year because there’s
+              no institutional memory; onboarding tools are valued more than high‑concept theory.</li>
+          <li><em>“AI” is a buzzword.</em> Users are intrigued by AI helpers but are wary of
+              outsourcing decisions; they want transparency and control.</li>
+          <li><em>Cost sensitivity is real.</em> Student orgs and small nonprofits operate on
+              shoestring budgets; freemium models or institutional sponsorships are essential.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Competitor Landscape</h3>
+        <p>
+          The space is a strange mix of polished civic tech platforms and home‑grown Google Docs.
+          Our goal isn’t to clone what already exists, but to slot into the gaps. Here’s a rough
+          map:
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Examples</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Civic education games</td>
+              <td>iCivics, Classroom Democracy kits</td>
+              <td>Great for K–12; less helpful for real campus politics</td>
+            </tr>
+            <tr>
+              <td>Governance platforms</td>
+              <td>Decidim, Loomio</td>
+              <td>Robust but heavy; often require IT support and budgets</td>
+            </tr>
+            <tr>
+              <td>Parliamentary procedure guides</td>
+              <td>Robert’s Rules cheat sheets</td>
+              <td>Useful reference, but no interactive practice</td>
+            </tr>
+            <tr>
+              <td>AI productivity tools</td>
+              <td>ChatGPT, Notion AI</td>
+              <td>General‑purpose; not tailored to civic contexts</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="small">
+          We respect these tools and occasionally borrow from them. The Civic Lab’s niche is
+          somewhere between “teach me how to govern” and “help me actually run this meeting.”
+        </p>
+      </section>
+
+      <section>
+        <h3>Research Roadmap</h3>
+        <p>
+          The research is ongoing. Upcoming steps include deeper dives into non‑college youth
+          programs, pilot deployments on campuses, and partnerships with civic tech providers who
+          don’t mind a little experimentation. If you have data, anecdotes or cynical hot takes to
+          share, we’d love to hear them.
+        </p>
+        <p class="small">
+          As always, reach out via the <a href="team-contact.html">Team &amp; Contact</a> page or
+          email consult@nathansanchez.org if you’d like to collaborate or simply tell us we’re
+          wrong.
         </p>
       </section>
     </main>
