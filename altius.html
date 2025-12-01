@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>ALTIUS – Catalyst Prototype v0.7</title>
+  <title>ALTIUS – Catalyst Prototype · Civic Engagement Experiment</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
@@ -352,6 +352,15 @@
       border-radius: 6px;
       font-size: 0.78rem;
     }
+
+    footer {
+      grid-column: 1 / -1;
+      margin-top: 10px;
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      opacity: 0.85;
+    }
   </style>
 </head>
 <body>
@@ -367,9 +376,10 @@
       </div>
 
       <p class="subtitle">
-        This is a public-facing shell of <strong>ALTIUS</strong> — a catalytic
-        agent designed to convert stuck intention into concrete action. It will
-        not do your work for you. It will remove your excuses.
+        This is a public-facing shell of <strong>ALTIUS</strong>, a catalytic
+        agent in the <strong>Civic Engagement Experiment</strong>. Its job is to
+        convert stuck intention into concrete action. It will not do your work
+        for you. It will remove your excuses.
       </p>
 
       <div class="divider"></div>
@@ -379,7 +389,7 @@
       </p>
       <ul class="bullet-list">
         <li>Describe a real task, problem, or civic dilemma you are avoiding.</li>
-        <li>Altius will expose the real barrier and give you the smallest next step.</li>
+        <li>ALTIUS will expose the real barrier and give you the smallest next step.</li>
         <li>Your job is simple: <strong>do the step</strong>, then come back.</li>
       </ul>
 
@@ -407,9 +417,15 @@
       </div>
 
       <div class="note" style="margin-top: 16px;">
-        <strong>Developer note:</strong> This page is a prototype shell. The
-        frontend builds the ALTIUS prompt and passes it to a model endpoint you
-        configure in <code class="inline">sendToModel()</code>.
+        <strong>Research notice:</strong> This prototype is part of an ongoing
+        civic engagement study. Your inputs may be stored and analyzed in
+        anonymized form to understand how people get stuck and how they regain
+        momentum.
+        <br /><br />
+        <strong>Developer note:</strong> The frontend builds the ALTIUS prompt
+        and passes it to a model endpoint you configure in
+        <code class="inline">sendToModel()</code>, where you can also wire
+        logging into the Civic Engagement Experiment backend.
       </div>
     </section>
 
@@ -429,7 +445,7 @@
       <div class="chat-window" id="chat-window">
         <div class="msg system">
           <strong>Catalyst Online.</strong> Describe the thing you're avoiding.
-          Be specific. Altius won't judge — only dissect.
+          Be specific. ALTIUS won't judge — only dissect.
         </div>
       </div>
 
@@ -444,7 +460,7 @@
         ></textarea>
         <div class="btn-row">
           <button class="btn btn-primary" id="send-btn">
-            ⚡ Engage Altius
+            ⚡ Engage ALTIUS
           </button>
           <button class="btn btn-ghost" id="reset-btn">Clear Console</button>
           <span class="status-indicator idle" id="status-indicator-bottom">
@@ -454,6 +470,11 @@
         </div>
       </div>
     </section>
+
+    <footer>
+      Part of the <strong>Civic Engagement Experiment</strong>.<br />
+      Prototype only · Not a therapist, not a lawyer, not a government.
+    </footer>
   </main>
 
   <script>
@@ -565,7 +586,7 @@ Then act.
       chatWindow.innerHTML = `
         <div class="msg system">
           <strong>Catalyst Online.</strong> Describe the thing you're avoiding.
-          Be specific. Altius won't judge — only dissect.
+          Be specific. ALTIUS won't judge — only dissect.
         </div>
       `;
     }
@@ -620,14 +641,14 @@ Catalyst Online.
 
 You said: "${userMessage}"
 
-Right now, this is running in demo mode, so I'm not calling a real model yet.
+Right now, this is running in demo mode, so it's not yet wired to a live model.
 
-However, here is how I would respond once fully wired:
+Once connected, ALTIUS will:
 1. Expose the real barrier behind your words.
 2. Break the problem into the smallest actionable steps.
 3. Give you a concrete move to take in the next 10–15 minutes.
 
-Hook this UI up to your model endpoint by editing <code>sendToModel()</code> in the source.
+Hook this UI up to your model endpoint by editing sendToModel() in the source.
 `;
       return mock.trim();
 
