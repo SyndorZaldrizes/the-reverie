@@ -10,6 +10,56 @@
     content="Detailed methodology and research design for the Civic Engagement Experiment, including research questions, hypotheses, sampling, treatments, measures, and ethics."
   />
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Local tab styles (scoped to this page) -->
+  <style>
+    .tab-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1.5rem 0 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 0.5rem;
+    }
+
+    .tab-button {
+      border: none;
+      background: transparent;
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: background 0.15s ease, opacity 0.15s ease, transform 0.1s ease;
+      white-space: nowrap;
+    }
+
+    .tab-button:hover {
+      opacity: 1;
+      transform: translateY(-1px);
+    }
+
+    .tab-button.active {
+      opacity: 1;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(6px);
+    }
+
+    .tab-section {
+      display: none;
+      margin-top: 1rem;
+    }
+
+    .tab-section.active {
+      display: block;
+    }
+
+    .tab-note {
+      font-size: 0.85rem;
+      opacity: 0.8;
+      margin-bottom: 0.75rem;
+    }
+  </style>
 </head>
 <body>
   <!-- HEADER / NAV -->
@@ -35,6 +85,7 @@
         <li><a href="study-details.html" class="active">Study Details</a></li>
         <li><a href="questionnaires.html">Questionnaires</a></li>
         <li><a href="civic-lab.html">Civic Lab</a></li>
+        <li><a href="altius.html">ALTIUS Prototype</a></li>
         <li><a href="venture-overview.html">Venture</a></li>
         <li><a href="notes.html">Notes &amp; Sandbox</a></li>
         <li><a href="references.html">References</a></li>
@@ -54,378 +105,562 @@
         <span class="eyebrow">Methodology · Campus Democratic Engagement Study</span>
         <h1>Study Details &amp; Research Design</h1>
         <p class="article-meta">
-          This page documents the core design of the Civic Engagement Experiment’s campus study:
-          research questions, hypotheses, sampling, treatments, measures, analytic strategy, and
-          ethical safeguards.
+          This page documents the core design of the Civic Engagement Experiment’s campus study
+          and related prototypes. Use the tabs below to switch between the main campus
+          survey-experiment and the ALTIUS task-engine substudy.
         </p>
       </header>
 
       <div class="article-content">
-        <!-- RESEARCH QUESTIONS & HYPOTHESES -->
-        <section>
-          <h2>Research Questions &amp; Hypotheses</h2>
-          <p>
-            The study asks how universities can cultivate a culture of democratic engagement that
-            reaches all students, including those who feel politically out of place. Drawing on
-            work on civic organizations and “cross-pressured” members, the central claim is that
-            organizational communication and norms can either widen or close the gap between
-            politically comfortable and politically misaligned students.
+
+        <!-- TAB CONTROLS -->
+        <div class="tab-controls" role="tablist" aria-label="Study sections">
+          <button
+            class="tab-button active"
+            data-tab-target="campus"
+            role="tab"
+            aria-selected="true"
+          >
+            Campus Democratic Engagement Study
+          </button>
+          <button
+            class="tab-button"
+            data-tab-target="altius"
+            role="tab"
+            aria-selected="false"
+          >
+            ALTIUS Prototype · Task Engine Substudy
+          </button>
+        </div>
+
+        <!-- TAB: CAMPUS STUDY (existing content) -->
+        <section
+          class="tab-section active"
+          data-tab="campus"
+          aria-label="Campus Democratic Engagement Study"
+        >
+          <p class="tab-note">
+            This tab is the core POSC / dissertation-style campus experiment:
+            survey, treatments, measures, and analysis strategy.
           </p>
 
-          <p>The main research question is:</p>
-          <blockquote>
+          <!-- RESEARCH QUESTIONS & HYPOTHESES -->
+          <section>
+            <h2>Research Questions &amp; Hypotheses</h2>
             <p>
-              How do different ways of framing campus civic engagement, combined with norms about
-              participation, shape democratic engagement among college students—especially those
-              who perceive themselves as politically misaligned with the campus climate?
+              The study asks how universities can cultivate a culture of democratic engagement that
+              reaches all students, including those who feel politically out of place. Drawing on
+              work on civic organizations and “cross-pressured” members, the central claim is that
+              organizational communication and norms can either widen or close the gap between
+              politically comfortable and politically misaligned students.
             </p>
-          </blockquote>
 
-          <p>From this, we derive three core hypotheses:</p>
-          <ul>
-            <li>
-              <strong>H1 (Framing):</strong> Messages that frame civic engagement around shared
-              campus identity and local issues will increase students’ sense of representation and
-              willingness to participate, relative to a neutral control and a national partisan
-              conflict frame.
-            </li>
-            <li>
-              <strong>H2 (Norms):</strong> Messages that highlight descriptive norms—that many
-              students participate in some form of civic activity—will further boost engagement by
-              signaling that participation is expected and socially supported.
-            </li>
-            <li>
-              <strong>H3 (Cross-pressure moderation):</strong> The positive effects of identity- and
-              norm-based frames will be strongest for students who perceive themselves as
-              politically misaligned with the campus climate (“cross-pressured” students).
-            </li>
-          </ul>
-        </section>
+            <p>The main research question is:</p>
+            <blockquote>
+              <p>
+                How do different ways of framing campus civic engagement, combined with norms about
+                participation, shape democratic engagement among college students—especially those
+                who perceive themselves as politically misaligned with the campus climate?
+              </p>
+            </blockquote>
 
-        <!-- DESIGN OVERVIEW -->
-        <section>
-          <h2>Design Overview</h2>
-          <p>
-            The project uses a mixed-methods approach anchored by a campus-based survey experiment.
-            The design has two linked goals:
-          </p>
-          <ol>
-            <li>
-              <strong>Substantive:</strong> Test whether framing and norms can move key outcomes
-              like political efficacy, perceived campus representation, and willingness to engage.
-            </li>
-            <li>
-              <strong>Design/developmental:</strong> Generate effect-size estimates, refine
-              measures, and identify implementation challenges in preparation for a larger,
-              multi-campus study.
-            </li>
-          </ol>
-          <p>
-            The pilot experiment is embedded in an online survey administered to students at a
-            liberal arts college. Participants are randomly assigned to one of four short messages
-            about campus civic engagement (described below), then answer questions and face a real,
-            low-stakes opportunity to engage.
-          </p>
-        </section>
+            <p>From this, we derive three core hypotheses:</p>
+            <ul>
+              <li>
+                <strong>H1 (Framing):</strong> Messages that frame civic engagement around shared
+                campus identity and local issues will increase students’ sense of representation and
+                willingness to participate, relative to a neutral control and a national partisan
+                conflict frame.
+              </li>
+              <li>
+                <strong>H2 (Norms):</strong> Messages that highlight descriptive norms—that many
+                students participate in some form of civic activity—will further boost engagement by
+                signaling that participation is expected and socially supported.
+              </li>
+              <li>
+                <strong>H3 (Cross-pressure moderation):</strong> The positive effects of identity-
+                and norm-based frames will be strongest for students who perceive themselves as
+                politically misaligned with the campus climate (“cross-pressured” students).
+              </li>
+            </ul>
+          </section>
 
-        <!-- POPULATION & SAMPLING -->
-        <section>
-          <h2>Population &amp; Sampling</h2>
-          <p>
-            The immediate population of interest is undergraduate students enrolled at a small,
-            liberal arts college. In practice, the pilot draws on:
-          </p>
-          <ul>
-            <li>Students in introductory political science and general education courses.</li>
-            <li>Students reached through a campus-wide email invitation.</li>
-            <li>
-              Students contacted via student government, civic organizations, and relevant
-              non-partisan clubs (e.g., service, debate, MSL delegation).
-            </li>
-          </ul>
-          <p>
-            The target sample size for the pilot is approximately <strong>150–250</strong>
-            respondents. This is sufficient to:
-          </p>
-          <ul>
-            <li>
-              Detect moderate treatment effects on attitudinal outcomes with basic regression
-              models.
-            </li>
-            <li>
-              Produce preliminary effect-size estimates for interaction effects (treatment ×
-              cross-pressure) to inform subsequent power analyses.
-            </li>
-          </ul>
-          <p>
-            Participation is voluntary; students may opt in via survey links distributed through
-            classes, email, and organization channels. No single class is required to participate,
-            and participation is not tied to course grades.
-          </p>
-        </section>
+          <!-- DESIGN OVERVIEW -->
+          <section>
+            <h2>Design Overview</h2>
+            <p>
+              The project uses a mixed-methods approach anchored by a campus-based survey experiment.
+              The design has two linked goals:
+            </p>
+            <ol>
+              <li>
+                <strong>Substantive:</strong> Test whether framing and norms can move key outcomes
+                like political efficacy, perceived campus representation, and willingness to engage.
+              </li>
+              <li>
+                <strong>Design/developmental:</strong> Generate effect-size estimates, refine
+                measures, and identify implementation challenges in preparation for a larger,
+                multi-campus study.
+              </li>
+            </ol>
+            <p>
+              The pilot experiment is embedded in an online survey administered to students at a
+              liberal arts college. Participants are randomly assigned to one of four short messages
+              about campus civic engagement (described below), then answer questions and face a real,
+              low-stakes opportunity to engage.
+            </p>
+          </section>
 
-        <!-- MEASURES -->
-        <section>
-          <h2>Key Measures</h2>
-          <p>
-            The survey instrument is designed to capture both demographic/background variables and
-            theoretically important constructs. The full item wording appears on the
-            <a href="questionnaires.html">Questionnaires</a> page; here we summarize the main
-            indices.
-          </p>
+          <!-- POPULATION & SAMPLING -->
+          <section>
+            <h2>Population &amp; Sampling</h2>
+            <p>
+              The immediate population of interest is undergraduate students enrolled at a small,
+              liberal arts college. In practice, the pilot draws on:
+            </p>
+            <ul>
+              <li>Students in introductory political science and general education courses.</li>
+              <li>Students reached through a campus-wide email invitation.</li>
+              <li>
+                Students contacted via student government, civic organizations, and relevant
+                non-partisan clubs (e.g., service, debate, MSL delegation).
+              </li>
+            </ul>
+            <p>
+              The target sample size for the pilot is approximately <strong>150–250</strong>
+              respondents. This is sufficient to:
+            </p>
+            <ul>
+              <li>
+                Detect moderate treatment effects on attitudinal outcomes with basic regression
+                models.
+              </li>
+              <li>
+                Produce preliminary effect-size estimates for interaction effects (treatment ×
+                cross-pressure) to inform subsequent power analyses.
+              </li>
+            </ul>
+            <p>
+              Participation is voluntary; students may opt in via survey links distributed through
+              classes, email, and organization channels. No single class is required to participate,
+              and participation is not tied to course grades.
+            </p>
+          </section>
 
-          <h3>Background &amp; Demographics</h3>
-          <ul>
-            <li>Year in school, major/minor, residence (on/off campus).</li>
-            <li>Race/ethnicity, gender, first-generation college status.</li>
-            <li>Past political behavior (voting where eligible, campaign activities, etc.).</li>
-          </ul>
+          <!-- MEASURES -->
+          <section>
+            <h2>Key Measures</h2>
+            <p>
+              The survey instrument is designed to capture both demographic/background variables and
+              theoretically important constructs. The full item wording appears on the
+              <a href="questionnaires.html">Questionnaires</a> page; here we summarize the main
+              indices.
+            </p>
 
-          <h3>Political Identity &amp; Cross-Pressure</h3>
-          <p>
-            To operationalize cross-pressure and perceived misfit, the study uses several
-            components:
-          </p>
-          <ul>
-            <li>
-              <strong>Ideology:</strong> Self-placement on a standard liberal–conservative
-              7-point scale.
-            </li>
-            <li>
-              <strong>Partisanship:</strong> Party identification with leaner categories and
-              options for non-identifiers.
-            </li>
-            <li>
-              <strong>Perceived campus climate:</strong> Items asking how students perceive “the
-              typical politically active student” (e.g., “On this campus, most politically engaged
-              students are…”).
-            </li>
-            <li>
-              <strong>Misfit/cross-pressure index:</strong> Items such as “I feel out of place when
-              politics is discussed on this campus” and “I rarely see my views represented in
-              campus political conversations,” combined into a scale.
-            </li>
-          </ul>
+            <h3>Background &amp; Demographics</h3>
+            <ul>
+              <li>Year in school, major/minor, residence (on/off campus).</li>
+              <li>Race/ethnicity, gender, first-generation college status.</li>
+              <li>Past political behavior (voting where eligible, campaign activities, etc.).</li>
+            </ul>
 
-          <h3>Democratic Engagement Outcomes</h3>
-          <p>Key attitudinal outcomes include:</p>
-          <ul>
-            <li>
-              <strong>Internal political efficacy (campus-specific):</strong> e.g.,
-              “People like me can influence decisions at this college.”
-            </li>
-            <li>
-              <strong>External efficacy/trust:</strong> e.g., “Campus decision-makers take student
-              input seriously.”
-            </li>
-            <li>
-              <strong>Engagement intentions:</strong> self-reported likelihood of voting in the next
-              election (where eligible) and participating in campus forums, town halls, or issue
-              campaigns.
-            </li>
-          </ul>
+            <h3>Political Identity &amp; Cross-Pressure</h3>
+            <p>
+              To operationalize cross-pressure and perceived misfit, the study uses several
+              components:
+            </p>
+            <ul>
+              <li>
+                <strong>Ideology:</strong> Self-placement on a standard liberal–conservative
+                7-point scale.
+              </li>
+              <li>
+                <strong>Partisanship:</strong> Party identification with leaner categories and
+                options for non-identifiers.
+              </li>
+              <li>
+                <strong>Perceived campus climate:</strong> Items asking how students perceive “the
+                typical politically active student” (e.g., “On this campus, most politically engaged
+                students are…”).
+              </li>
+              <li>
+                <strong>Misfit/cross-pressure index:</strong> Items such as “I feel out of place
+                when politics is discussed on this campus” and “I rarely see my views represented in
+                campus political conversations,” combined into a scale.
+              </li>
+            </ul>
 
-          <p>Behavioral outcomes are captured through:</p>
-          <ul>
-            <li>
-              A real option to <strong>sign up</strong> for a non-partisan civic mailing list or
-              indicate interest in a campus civic event.
-            </li>
-            <li>
-              Click-through and sign-up rates, recorded separately from survey responses to protect
-              anonymity where required.
-            </li>
-          </ul>
-        </section>
+            <h3>Democratic Engagement Outcomes</h3>
+            <p>Key attitudinal outcomes include:</p>
+            <ul>
+              <li>
+                <strong>Internal political efficacy (campus-specific):</strong> e.g.,
+                “People like me can influence decisions at this college.”
+              </li>
+              <li>
+                <strong>External efficacy/trust:</strong> e.g., “Campus decision-makers take student
+                input seriously.”
+              </li>
+              <li>
+                <strong>Engagement intentions:</strong> self-reported likelihood of voting in the
+                next election (where eligible) and participating in campus forums, town halls, or
+                issue campaigns.
+              </li>
+            </ul>
 
-        <!-- EXPERIMENTAL TREATMENTS -->
-        <section>
-          <h2>Experimental Treatments</h2>
-          <p>
-            In the pilot study, participants are randomly assigned to read one of four short
-            messages delivered via the online survey. Each message is written in the voice of a
-            campus office or organization and framed to be realistic but brief. The content mirrors
-            the messages documented more fully on the <a href="dissertation.html">Dissertation</a>
-            page.
-          </p>
+            <p>Behavioral outcomes are captured through:</p>
+            <ul>
+              <li>
+                A real option to <strong>sign up</strong> for a non-partisan civic mailing list or
+                indicate interest in a campus civic event.
+              </li>
+              <li>
+                Click-through and sign-up rates, recorded separately from survey responses to
+                protect anonymity where required.
+              </li>
+            </ul>
+          </section>
 
-          <h3>Condition 1: Neutral Control</h3>
-          <p>
-            A short informational message about campus resources and upcoming opportunities (e.g.,
-            tutoring, wellness, student organizations). It makes no explicit appeal to civic
-            engagement and includes no political or normative language. This condition establishes
-            a baseline for simply receiving a benign campus communication.
-          </p>
+          <!-- EXPERIMENTAL TREATMENTS -->
+          <section>
+            <h2>Experimental Treatments</h2>
+            <p>
+              In the pilot study, participants are randomly assigned to read one of four short
+              messages delivered via the online survey. Each message is written in the voice of a
+              campus office or organization and framed to be realistic but brief. The content mirrors
+              the messages documented more fully on the <a href="dissertation.html">Dissertation</a>
+              page.
+            </p>
 
-          <h3>Condition 2: Partisan Conflict Frame</h3>
-          <p>
-            A message emphasizing national-level partisan conflict and polarization. It frames
-            student civic engagement in terms of “fighting for your side” in a high-stakes national
-            struggle. This mirrors the kind of conflict-oriented messaging students often see in
-            national media and on social platforms.
-          </p>
+            <h3>Condition 1: Neutral Control</h3>
+            <p>
+              A short informational message about campus resources and upcoming opportunities (e.g.,
+              tutoring, wellness, student organizations). It makes no explicit appeal to civic
+              engagement and includes no political or normative language. This condition establishes
+              a baseline for simply receiving a benign campus communication.
+            </p>
 
-          <h3>Condition 3: Campus Identity &amp; Local Stakes Frame</h3>
-          <p>
-            A message that minimizes national partisan conflict and instead frames engagement as a
-            core part of being a responsible member of the campus community. It highlights local
-            stakes: student services, campus funding decisions, housing, mental health resources,
-            and other issues directly affecting student life. The message stresses shared identity
-            (“as [College Name] students”) rather than ideological labels.
-          </p>
+            <h3>Condition 2: Partisan Conflict Frame</h3>
+            <p>
+              A message emphasizing national-level partisan conflict and polarization. It frames
+              student civic engagement in terms of “fighting for your side” in a high-stakes national
+              struggle. This mirrors the kind of conflict-oriented messaging students often see in
+              national media and on social platforms.
+            </p>
 
-          <h3>Condition 4: Identity + Norms Frame</h3>
-          <p>
-            This message builds on Condition 3 but adds explicit descriptive norms. It notes that
-            many students participate in at least one civic activity, attend events, or provide
-            feedback each semester, signaling that engagement is typical rather than exceptional.
-            The goal is to test whether combining identity and local-stakes framing with descriptive
-            norms produces stronger effects on attitudes and behavior.
-          </p>
-        </section>
+            <h3>Condition 3: Campus Identity &amp; Local Stakes Frame</h3>
+            <p>
+              A message that minimizes national partisan conflict and instead frames engagement as a
+              core part of being a responsible member of the campus community. It highlights local
+              stakes: student services, campus funding decisions, housing, mental health resources,
+              and other issues directly affecting student life. The message stresses shared identity
+              (“as [College Name] students”) rather than ideological labels.
+            </p>
 
-        <!-- ANALYTIC STRATEGY -->
-        <section>
-          <h2>Analytic Strategy</h2>
-          <p>
-            The analysis proceeds in several steps, reflecting basic causal inference logic covered
-            in POSC 200–level methodology but applied with dissertation-level care.
-          </p>
+            <h3>Condition 4: Identity + Norms Frame</h3>
+            <p>
+              This message builds on Condition 3 but adds explicit descriptive norms. It notes that
+              many students participate in at least one civic activity, attend events, or provide
+              feedback each semester, signaling that engagement is typical rather than exceptional.
+              The goal is to test whether combining identity and local-stakes framing with descriptive
+              norms produces stronger effects on attitudes and behavior.
+            </p>
+          </section>
 
-          <h3>1. Balance &amp; Randomization Checks</h3>
-          <p>
-            Before estimating treatment effects, the study checks whether random assignment
-            produced comparable groups. Descriptive statistics and simple balance tests (e.g.,
-            comparing means of key covariates across treatment arms) are used to verify that
-            ideology, cross-pressure scores, and major demographic variables are not systematically
-            skewed.
-          </p>
+          <!-- ANALYTIC STRATEGY -->
+          <section>
+            <h2>Analytic Strategy</h2>
+            <p>
+              The analysis proceeds in several steps, reflecting basic causal inference logic covered
+              in POSC 200–level methodology but applied with dissertation-level care.
+            </p>
 
-          <h3>2. Main Treatment Effects</h3>
-          <p>
-            For continuous attitudinal outcomes (e.g., efficacy scales), the primary estimators are
-            ordinary least squares (OLS) models of the form:
-          </p>
-          <pre><code>Yᵢ = β₀ + β₁T₂ᵢ + β₂T₃ᵢ + β₃T₄ᵢ + Xᵢγ + εᵢ</code></pre>
-          <p>
-            where <em>T₂–T₄</em> are dummy variables for the partisan, identity, and
-            identity+norms conditions (with the control as the omitted category) and <em>Xᵢ</em>
-            captures pre-treatment covariates (e.g., ideology, year in school) included to improve
-            precision. For binary outcomes (e.g., whether a student signs up for an event),
-            logistic regression or linear probability models are used, with robustness checks for
-            specification.
-          </p>
+            <h3>1. Balance &amp; Randomization Checks</h3>
+            <p>
+              Before estimating treatment effects, the study checks whether random assignment
+              produced comparable groups. Descriptive statistics and simple balance tests (e.g.,
+              comparing means of key covariates across treatment arms) are used to verify that
+              ideology, cross-pressure scores, and major demographic variables are not systematically
+              skewed.
+            </p>
 
-          <h3>3. Cross-Pressure Interactions</h3>
-          <p>
-            To test H3, models include interaction terms between the treatment indicators and the
-            cross-pressure index:
-          </p>
-          <pre><code>Yᵢ = β₀ + β₁T₂ᵢ + β₂T₃ᵢ + β₃T₄ᵢ
+            <h3>2. Main Treatment Effects</h3>
+            <p>
+              For continuous attitudinal outcomes (e.g., efficacy scales), the primary estimators are
+              ordinary least squares (OLS) models of the form:
+            </p>
+            <pre><code>Yᵢ = β₀ + β₁T₂ᵢ + β₂T₃ᵢ + β₃T₄ᵢ + Xᵢγ + εᵢ</code></pre>
+            <p>
+              where <em>T₂–T₄</em> are dummy variables for the partisan, identity, and
+              identity+norms conditions (with the control as the omitted category) and <em>Xᵢ</em>
+              captures pre-treatment covariates (e.g., ideology, year in school) included to improve
+              precision. For binary outcomes (e.g., whether a student signs up for an event),
+              logistic regression or linear probability models are used, with robustness checks for
+              specification.
+            </p>
+
+            <h3>3. Cross-Pressure Interactions</h3>
+            <p>
+              To test H3, models include interaction terms between the treatment indicators and the
+              cross-pressure index:
+            </p>
+            <pre><code>Yᵢ = β₀ + β₁T₂ᵢ + β₂T₃ᵢ + β₃T₄ᵢ
       + β₄CrossPressureᵢ
       + β₅(T₃ᵢ × CrossPressureᵢ)
       + β₆(T₄ᵢ × CrossPressureᵢ)
       + Xᵢγ + εᵢ</code></pre>
-          <p>
-            Substantive interpretation focuses on <em>marginal effects</em> of frames at different
-            levels of cross-pressure (e.g., low, medium, high), rather than on raw interaction
-            coefficients alone. Graphical displays (predicted values and confidence intervals) are
-            used to communicate the results.
-          </p>
+            <p>
+              Substantive interpretation focuses on <em>marginal effects</em> of frames at different
+              levels of cross-pressure (e.g., low, medium, high), rather than on raw interaction
+              coefficients alone. Graphical displays (predicted values and confidence intervals) are
+              used to communicate the results.
+            </p>
 
-          <h3>4. Pilot Orientation</h3>
-          <p>
-            Because this is a pilot, the emphasis is on:
-          </p>
-          <ul>
-            <li>Reasonable effect-size estimates with uncertainty clearly reported.</li>
-            <li>Sensitivity checks (e.g., excluding inattentive respondents, alternative codings).</li>
-            <li>
-              Identifying where measures or procedures need refinement before a multi-campus scale
-              up.
-            </li>
-          </ul>
-          <p>
-            The study explicitly avoids over-claiming “definitive” results from a single-campus
-            pilot; instead, it treats findings as evidence that can either justify scaling up or
-            push a redesign.
-          </p>
+            <h3>4. Pilot Orientation</h3>
+            <p>
+              Because this is a pilot, the emphasis is on:
+            </p>
+            <ul>
+              <li>Reasonable effect-size estimates with uncertainty clearly reported.</li>
+              <li>Sensitivity checks (e.g., excluding inattentive respondents, alternative codings).</li>
+              <li>
+                Identifying where measures or procedures need refinement before a multi-campus scale
+                up.
+              </li>
+            </ul>
+            <p>
+              The study explicitly avoids over-claiming “definitive” results from a single-campus
+              pilot; instead, it treats findings as evidence that can either justify scaling up or
+              push a redesign.
+            </p>
+          </section>
+
+          <!-- IMPLEMENTATION & LIMITATIONS -->
+          <section>
+            <h2>Implementation Notes &amp; Limitations</h2>
+            <p>
+              The design acknowledges several practical and theoretical limitations up front:
+            </p>
+            <ul>
+              <li>
+                <strong>Single-campus context:</strong> Findings may be shaped by the specific
+                political climate, size, and culture of the institution. A full dissertation project
+                would need a multi-campus design to test generalizability.
+              </li>
+              <li>
+                <strong>Self-selection into the survey:</strong> Students willing to participate may
+                already be more civically interested than the average student. Descriptive statistics
+                and comparisons with campus-wide demographics will be used to assess representativeness.
+              </li>
+              <li>
+                <strong>Short-term measurement:</strong> The pilot focuses on immediate attitudinal
+                shifts and near-term behavioral intentions. Longer-term effects (e.g., actual turnout
+                in a future election) would require panel data or administrative linkages.
+              </li>
+            </ul>
+            <p>
+              These limitations are not fatal; they simply clarify what this phase of the project can
+              and cannot prove. The study is designed as a serious first step in a longer, iterative
+              research program rather than as a one-off “gotcha” experiment.
+            </p>
+          </section>
+
+          <!-- ETHICS -->
+          <section>
+            <h2>Ethics, Consent, &amp; Data Protection</h2>
+            <p>
+              Any real-world implementation of this study on a campus will be submitted for review by
+              the institution’s Institutional Review Board (IRB) or equivalent ethics committee
+              before data collection begins. The design follows standard principles of research
+              ethics in political science and related fields:
+            </p>
+            <ul>
+              <li>
+                <strong>Voluntary participation:</strong> Students choose whether to participate.
+                There are no penalties for non-participation, and course-related incentives (if any)
+                must be approved and proportionate.
+              </li>
+              <li>
+                <strong>Informed consent:</strong> The survey begins with a clear explanation of the
+                study’s purpose, what participation involves, potential risks (which are minimal),
+                and how data will be used. Participants must affirm consent before proceeding.
+              </li>
+              <li>
+                <strong>Confidentiality:</strong> Survey responses are stored without direct
+                identifiers. If contact information is collected for follow-up (e.g., mailing
+                lists), it is stored separately from survey data, linked only by an anonymous code
+                when necessary.
+              </li>
+              <li>
+                <strong>Right to withdraw:</strong> Participants may stop at any time. Partially
+                completed surveys are either excluded from analysis or handled according to pre-registered
+                rules.
+              </li>
+              <li>
+                <strong>Debriefing:</strong> At the end of the survey, participants receive a brief
+                explanation of the purpose of the message variations and links to campus resources
+                for further civic engagement or support.
+              </li>
+            </ul>
+            <p>
+              Questions about ethics or data use for any future implementation should be directed to
+              the principal investigator via the contact information on the
+              <a href="team-contact.html">Team &amp; Contact</a> page, or to the relevant IRB office
+              at the participating institution.
+            </p>
+          </section>
         </section>
 
-        <!-- IMPLEMENTATION & LIMITATIONS -->
-        <section>
-          <h2>Implementation Notes &amp; Limitations</h2>
-          <p>
-            The design acknowledges several practical and theoretical limitations up front:
+        <!-- TAB: ALTIUS PROTOTYPE -->
+        <section
+          class="tab-section"
+          data-tab="altius"
+          aria-label="ALTIUS Prototype Task-Engine Substudy"
+        >
+          <p class="tab-note">
+            This tab describes ALTIUS as a structured substudy: an AI-guided task engine used
+            as a civic learning tool and as a source of anonymized behavioral data.
           </p>
-          <ul>
-            <li>
-              <strong>Single-campus context:</strong> Findings may be shaped by the specific
-              political climate, size, and culture of the institution. A full dissertation project
-              would need a multi-campus design to test generalizability.
-            </li>
-            <li>
-              <strong>Self-selection into the survey:</strong> Students willing to participate may
-              already be more civically interested than the average student. Descriptive statistics
-              and comparisons with campus-wide demographics will be used to assess representativeness.
-            </li>
-            <li>
-              <strong>Short-term measurement:</strong> The pilot focuses on immediate attitudinal
-              shifts and near-term behavioral intentions. Longer-term effects (e.g., actual turnout
-              in a future election) would require panel data or administrative linkages.
-            </li>
-          </ul>
-          <p>
-            These limitations are not fatal; they simply clarify what this phase of the project can
-            and cannot prove. The study is designed as a serious first step in a longer, iterative
-            research program rather than as a one-off “gotcha” experiment.
-          </p>
+
+          <section>
+            <h2>ALTIUS Prototype: Role in the Civic Engagement Experiment</h2>
+            <p>
+              ALTIUS is an experimental, AI-aligned task engine developed inside the Civic Engagement
+              Experiment &amp; Lab. Rather than answering questions in place of the user, ALTIUS is
+              designed to reduce inertia and help students move from abstract intention
+              (“I should get involved” or “I should write this paper”) toward concrete action. The
+              prototype lives at the intersection of civic education, behavioral science, and
+              human–AI interaction.
+            </p>
+            <p>
+              In research terms, ALTIUS functions as a <em>guided intervention layer</em>. It does
+              not replace the campus survey experiment described in the main tab; instead, it
+              complements it by generating structured process data on how people actually try to
+              solve tasks when they have an AI “co-agent” focused on agency rather than answers.
+            </p>
+          </section>
+
+          <section>
+            <h2>Core Design Questions</h2>
+            <p>
+              The ALTIUS substudy is built around questions that parallel the campus experiment but
+              operate at the micro level of daily work and civic behavior:
+            </p>
+            <ul>
+              <li>
+                How does access to an AI task engine that emphasizes small next steps affect
+                students’ willingness to start and finish demanding academic or civic tasks?
+              </li>
+              <li>
+                Under what conditions does an AI assistant increase agency (clarity, ownership, follow-through)
+                rather than encourage over-dependence or avoidance?
+              </li>
+              <li>
+                Can structured AI prompts be used to surface patterns of procrastination, avoidance,
+                and overload that are relevant to democratic engagement (e.g., putting off voting,
+                delaying applications, avoiding political discussions)?
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Interaction Pattern &amp; Task Engine Logic</h2>
+            <p>
+              The current prototype runs on a small, repeatable interaction loop:
+            </p>
+            <ol>
+              <li><strong>Clarify:</strong> The user states a task they are avoiding (e.g., a 5-page paper, a club email, a civic application).</li>
+              <li><strong>Decompose:</strong> ALTIUS breaks the task into atomic steps, distinguishing “decision work” from “mechanical work.”</li>
+              <li><strong>Anchor:</strong> The system identifies the smallest non-zero action that can be completed immediately (e.g., opening a document, listing songs, drafting one paragraph).</li>
+              <li><strong>Execute &amp; Reflect:</strong> The user acts, then reports completion; ALTIUS adjusts the plan, surfaces friction points, and proposes the next move.</li>
+            </ol>
+            <p>
+              Over time, aggregated runs of this loop (with identifiers removed) can be used to
+              explore which types of prompts, framing, and structures are most effective at turning
+              civic concern and academic pressure into consistent, sustainable action.
+            </p>
+          </section>
+
+          <section>
+            <h2>Use Cases Within the Civic Lab</h2>
+            <p>
+              In the broader Civic Lab ecosystem, ALTIUS is envisioned as a tool that can be
+              embedded into:
+            </p>
+            <ul>
+              <li>Annotated assignments and civic missions (e.g., mixtape projects, reflection papers, outreach plans).</li>
+              <li>
+                Workshops on procrastination, burnout, and democratic fatigue, where the agent is
+                used live and debriefed as part of the exercise.
+              </li>
+              <li>
+                Longitudinal civic engagement projects, where the same student interacts with ALTIUS
+                over multiple tasks and semesters.
+              </li>
+            </ul>
+            <p>
+              Each deployment is treated as both a support tool and a mini-experiment, with clear
+              consent and opt-out options for users.
+            </p>
+          </section>
+
+          <section>
+            <h2>Data, Ethics, &amp; Guardrails</h2>
+            <p>
+              The ALTIUS prototype inherits the same ethical considerations as the main campus
+              study, with additional guardrails specific to AI-mediated interaction:
+            </p>
+            <ul>
+              <li>
+                <strong>Agency-first design:</strong> The system is explicitly constrained not to
+                make decisions for users or to push them toward any partisan outcome. Its role is to
+                clarify tasks and suggest next steps, not to prescribe beliefs.
+              </li>
+              <li>
+                <strong>Data minimization:</strong> Any future research use of ALTIUS logs would rely
+                on anonymized, aggregate data (e.g., task categories, completion patterns), not
+                identifiable personal narratives.
+              </li>
+              <li>
+                <strong>Transparent framing:</strong> Students are informed when an interaction is
+                part of a research effort and how their data may be used; participation is optional
+                and does not affect grades, standing, or access to services.
+              </li>
+              <li>
+                <strong>Non-therapeutic scope:</strong> ALTIUS is not a mental health tool. When
+                interactions drift into crisis or clinical issues, the appropriate recommendation is
+                to seek campus or professional support, not to “solve it” inside the agent.
+              </li>
+            </ul>
+            <p>
+              In future iterations, formal protocols (e.g., pre-registration, IRB review) would
+              govern any systematic comparison between groups that use ALTIUS and those that do not.
+            </p>
+          </section>
+
+          <section>
+            <h2>Next Steps &amp; Integration</h2>
+            <p>
+              As the Civic Engagement Experiment grows, ALTIUS is expected to move from a single
+              prototype to a family of small, specialized tools. The study details on this page
+              provide the quantitative backbone; ALTIUS adds a qualitative and behavioral layer
+              focused on how people actually move from understanding civic life to doing something
+              about it.
+            </p>
+            <p>
+              Future work may include:
+            </p>
+            <ul>
+              <li>Embedding ALTIUS prompts directly into survey follow-ups and workshop materials.</li>
+              <li>Comparing task completion and engagement across different prompt styles.</li>
+              <li>
+                Connecting insights from ALTIUS back into curriculum design, club training, and
+                broader democratic education efforts.
+              </li>
+            </ul>
+          </section>
         </section>
 
-        <!-- ETHICS -->
-        <section>
-          <h2>Ethics, Consent, &amp; Data Protection</h2>
-          <p>
-            Any real-world implementation of this study on a campus will be submitted for review by
-            the institution’s Institutional Review Board (IRB) or equivalent ethics committee
-            before data collection begins. The design follows standard principles of research
-            ethics in political science and related fields:
-          </p>
-          <ul>
-            <li>
-              <strong>Voluntary participation:</strong> Students choose whether to participate.
-              There are no penalties for non-participation, and course-related incentives (if any)
-              must be approved and proportionate.
-            </li>
-            <li>
-              <strong>Informed consent:</strong> The survey begins with a clear explanation of the
-              study’s purpose, what participation involves, potential risks (which are minimal),
-              and how data will be used. Participants must affirm consent before proceeding.
-            </li>
-            <li>
-              <strong>Confidentiality:</strong> Survey responses are stored without direct
-              identifiers. If contact information is collected for follow-up (e.g., mailing
-              lists), it is stored separately from survey data, linked only by an anonymous code
-              when necessary.
-            </li>
-            <li>
-              <strong>Right to withdraw:</strong> Participants may stop at any time. Partially
-              completed surveys are either excluded from analysis or handled according to pre-registered
-              rules.
-            </li>
-            <li>
-              <strong>Debriefing:</strong> At the end of the survey, participants receive a brief
-              explanation of the purpose of the message variations and links to campus resources
-              for further civic engagement or support.
-            </li>
-          </ul>
-          <p>
-            Questions about ethics or data use for any future implementation should be directed to
-            the principal investigator via the contact information on the
-            <a href="team-contact.html">Team &amp; Contact</a> page, or to the relevant IRB office
-            at the participating institution.
-          </p>
-        </section>
       </div>
     </div>
   </main>
@@ -469,7 +704,7 @@
     </div>
   </footer>
 
-  <!-- SIMPLE JS: NAV TOGGLE + YEAR -->
+  <!-- SIMPLE JS: NAV TOGGLE + YEAR + TABS -->
   <script>
     const navToggle = document.querySelector('.nav-toggle');
     const mainNav = document.querySelector('.main-nav');
@@ -485,6 +720,32 @@
     if (yearSpan) {
       yearSpan.textContent = new Date().getFullYear();
     }
+
+    // Tab logic
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabSections = document.querySelectorAll('.tab-section');
+
+    tabButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const target = btn.getAttribute('data-tab-target');
+
+        tabButtons.forEach((b) => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        tabSections.forEach((section) => {
+          section.classList.remove('active');
+        });
+
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+
+        const activeSection = document.querySelector(`.tab-section[data-tab="${target}"]`);
+        if (activeSection) {
+          activeSection.classList.add('active');
+        }
+      });
+    });
   </script>
 </body>
 </html>
