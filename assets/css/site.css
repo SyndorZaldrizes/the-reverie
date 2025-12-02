@@ -98,6 +98,20 @@ body.theme-galaxy::after{
   border-bottom: 1px solid var(--border);
 }
 
+.skip-link{
+  position: absolute;
+  left: -999px;
+  top: 8px;
+  padding: 10px 14px;
+  background: #0a0b12;
+  border: 2px solid var(--accent);
+  border-radius: 12px;
+  color: var(--text);
+  z-index: 999;
+}
+
+.skip-link:focus{ left: 16px; }
+
 .header-inner{
   width: min(var(--wrap), calc(100% - 32px));
   margin: 0 auto;
@@ -133,7 +147,11 @@ body.theme-galaxy::after{
   border-radius: 12px;
   padding: 8px 10px;
   cursor: pointer;
+  align-items: center;
+  gap: 6px;
 }
+
+.nav-toggle-bar{ display: block; width: 18px; height: 2px; background: currentColor; }
 
 .main-nav ul{
   list-style: none;
@@ -187,6 +205,8 @@ body.theme-galaxy::after{
   .main-nav ul{ flex-direction: column; align-items: stretch;}
   .main-nav a{ justify-content: space-between; }
 }
+
+.nav-lock{ overflow: hidden; }
 
 /* Buttons / links */
 .btn{

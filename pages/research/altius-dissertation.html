@@ -79,42 +79,7 @@
 
 <body>
   <!-- HEADER / NAV (Research folder) -->
-  <header class="site-header">
-    <div class="brand">
-      <a href="index.html" class="brand-link">
-        <span class="brand-main">Civic Engagement</span>
-        <span class="brand-sub">Experiment &amp; Lab</span>
-      </a>
-    </div>
-
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-      <span class="nav-toggle-bar"></span>
-      <span class="nav-toggle-bar"></span>
-    </button>
-
-    <nav class="main-nav" aria-label="Primary navigation">
-      <ul>
-        <li><a href="index.html">Research Home</a></li>
-        <li><a href="research-overview.html">Research Overview</a></li>
-        <li><a href="journal-memo.html">Journal Memo</a></li>
-        <li><a href="dissertation.html">Dissertation</a></li>
-        <li><a href="study-details.html">Study Details</a></li>
-
-        <!-- Prototype vs research split -->
-        <li><a href="altius.html">ALTIUS Prototype</a></li>
-        <li><a href="altius-dissertation.html" class="active">ALTIUS Dissertation</a></li>
-
-        <li><a href="../lab/">Lab</a></li>
-        <li><a href="../index.html">Main Site</a></li>
-
-        <li>
-          <a href="https://syndorzaldrizes.github.io/Syndor/" target="_blank" rel="noopener">
-            MSL Site ↗
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </header>
+  <div data-include="header"></div>
 
   <main>
     <div class="article">
@@ -580,42 +545,7 @@ When the task is civic or political:
   </main>
 
   <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="footer-main">
-      <div class="footer-about">
-        <h3>About the lab</h3>
-        <p>
-          The Civic Engagement Experiment &amp; Lab connects democratic theory, youth engagement,
-          and real-world practice through research and prototypes—including ALTIUS as an agency-first task engine.
-        </p>
-        <a href="../lab/">Lab →</a>
-      </div>
-
-      <div class="footer-links">
-        <h3>Quick links</h3>
-        <ul>
-          <li><a href="altius.html">ALTIUS prototype</a></li>
-          <li><a href="study-details.html">Study details</a></li>
-          <li><a href="dissertation.html">Main dissertation draft</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-links">
-        <h3>Partners</h3>
-        <ul>
-          <li>
-            <a href="https://syndorzaldrizes.github.io/Syndor/" target="_blank" rel="noopener">
-              Maryland Student Legislature @ SMCM ↗
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p>© <span id="year"></span> Civic Engagement Experiment &amp; Lab.</p>
-    </div>
-  </footer>
+  <div data-include="footer"></div>
 
   <!-- JS: NAV TOGGLE + YEAR -->
   <script>
