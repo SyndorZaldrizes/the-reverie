@@ -3,13 +3,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Study Details – Civic Engagement Experiment &amp; Lab</title>
+  <title>Study Details – The Reverie &amp; Lab</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Detailed methodology and research design for the Civic Engagement Experiment, including research questions, hypotheses, sampling, treatments, measures, and ethics."
+    content="Detailed methodology and research design for The Reverie, including research questions, hypotheses, sampling, treatments, measures, and ethics."
   />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="/the-reverie/assets/css/site.css" />
+
+  <script src="/the-reverie/assets/js/site.js" defer></script>
 
   <!-- Local tab styles (scoped to this page) -->
   <style>
@@ -68,17 +70,46 @@
   </style>
 </head>
 
-<body>
+<body class="theme-galaxy">
   <!-- HEADER / NAV -->
-  <div data-include="header"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand-link" href="/the-reverie/index.html">
+        <span class="brand-title">The Reverie</span>
+        <span class="brand-sub">Civic Research + Civic Lab</span>
+      </a>
 
-  <main>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" type="button">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <nav class="main-nav" aria-label="Primary navigation">
+        <ul>
+          <li><a href="/the-reverie/index.html">Home</a></li>
+          <li><a href="/the-reverie/pages/research/index.html">Research</a></li>
+          <li><a href="/the-reverie/pages/lab/index.html">Civic Lab</a></li>
+          <li><a href="/the-reverie/pages/altius/index.html">ALTIUS</a></li>
+          <li><a href="/the-reverie/pages/venture/index.html">Venture</a></li>
+          <li><a href="/the-reverie/pages/about/index.html">About</a></li>
+          <li><a href="/the-reverie/pages/about/references.html">References</a></li>
+          <li>
+            <a href="https://syndorzaldrizes.github.io/Syndor/" target="_blank" rel="noopener">MSL ↗</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
     <div class="article">
       <header class="article-header">
         <span class="eyebrow">Methodology · Campus Democratic Engagement Study</span>
         <h1>Study Details &amp; Research Design</h1>
         <p class="article-meta">
-          This page documents the core design of the Civic Engagement Experiment’s campus study
+          This page documents the core design of The Reverie’s campus study
           and related prototypes. Use the tabs below to switch between the main campus
           survey-experiment and the ALTIUS task-engine substudy.
         </p>
@@ -321,7 +352,7 @@
             </ul>
             <p>
               Questions about ethics or data use should be directed to the project owner via the
-              <a href="../index.html">Main Site</a> (or to the relevant IRB office at the participating institution).
+              <a href="/the-reverie/index.html">Main Site</a> (or to the relevant IRB office at the participating institution).
             </p>
           </section>
         </section>
@@ -340,7 +371,7 @@
           </p>
 
           <section>
-            <h2>ALTIUS Prototype: Role in the Civic Engagement Experiment</h2>
+            <h2>ALTIUS Prototype: Role in The Reverie</h2>
             <p>
               ALTIUS is an experimental, AI-aligned task engine developed inside the Civic Engagement
               Experiment &amp; Lab. Rather than answering questions in place of the user, ALTIUS is
@@ -388,7 +419,12 @@
   </main>
 
   <!-- FOOTER -->
-  <div data-include="footer"></div>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>© <span id="year"></span> The Reverie.</p>
+      <p>Built as a civic research and lab hub.</p>
+    </div>
+  </footer>
 
   <!-- JS: NAV TOGGLE + YEAR + TABS -->
   <script>

@@ -9,8 +9,8 @@
     content="Civic Lab services, game-style activities, and applied experiments to help student orgs, classes, and youth projects build real democratic engagement."
   />
 
-  <link rel="stylesheet" href="../../assets/css/site.css" />
-  <script src="../../assets/js/site.js" defer></script>
+  <link rel="stylesheet" href="/the-reverie/assets/css/site.css" />
+  <script src="/the-reverie/assets/js/site.js" defer></script>
 
   <style>
     .lab-hero { padding: 42px 0 12px; }
@@ -66,7 +66,36 @@
 </head>
 
 <body class="theme-galaxy">
-  <div data-include="header"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand-link" href="/the-reverie/index.html">
+        <span class="brand-title">The Reverie</span>
+        <span class="brand-sub">Civic Research + Civic Lab</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" type="button">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <nav class="main-nav" aria-label="Primary navigation">
+        <ul>
+          <li><a href="/the-reverie/index.html">Home</a></li>
+          <li><a href="/the-reverie/pages/research/index.html">Research</a></li>
+          <li><a href="/the-reverie/pages/lab/index.html">Civic Lab</a></li>
+          <li><a href="/the-reverie/pages/altius/index.html">ALTIUS</a></li>
+          <li><a href="/the-reverie/pages/venture/index.html">Venture</a></li>
+          <li><a href="/the-reverie/pages/about/index.html">About</a></li>
+          <li><a href="/the-reverie/pages/about/references.html">References</a></li>
+          <li>
+            <a href="https://syndorzaldrizes.github.io/Syndor/" target="_blank" rel="noopener">MSL ↗</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
   <main id="main">
     <section class="hero lab-hero">
@@ -94,7 +123,7 @@
         <div class="cta-row">
           <a class="btn primary" href="../altius/">Try ALTIUS →</a>
           <a class="btn" href="../venture/">See Venture track →</a>
-          <a class="link" href="../about/references.html">Sources / references →</a>
+          <a class="link" href="/the-reverie/pages/about/references.html">Sources / references →</a>
         </div>
       </div>
     </section>
@@ -291,14 +320,19 @@
           </ul>
           <div class="cta-row">
             <a class="btn primary" href="../altius/">Run ALTIUS →</a>
-            <a class="btn" href="../about/references.html">See references →</a>
-            <a class="btn" href="../../index.html">Back home →</a>
+            <a class="btn" href="/the-reverie/pages/about/references.html">See references →</a>
+            <a class="btn" href="/the-reverie/index.html">Back home →</a>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <div data-include="footer"></div>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>© <span id="year"></span> The Reverie.</p>
+      <p>Built as a civic research and lab hub.</p>
+    </div>
+  </footer>
 </body>
 </html>

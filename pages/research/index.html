@@ -10,10 +10,10 @@
   />
 
   <!-- Shared theme -->
-  <link rel="stylesheet" href="../../assets/css/site.css" />
+  <link rel="stylesheet" href="/the-reverie/assets/css/site.css" />
 
-  <!-- Shared behavior: header/footer injection, nav toggle, year -->
-  <script src="../../assets/js/site.js" defer></script>
+  <!-- Shared behavior: nav toggle, year -->
+  <script src="/the-reverie/assets/js/site.js" defer></script>
 
   <style>
     .page-hero { padding: 48px 0 18px; }
@@ -64,8 +64,36 @@
 </head>
 
 <body class="theme-galaxy">
-  <!-- Shared header injected by site.js -->
-  <div data-include="header"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand-link" href="/the-reverie/index.html">
+        <span class="brand-title">The Reverie</span>
+        <span class="brand-sub">Civic Research + Civic Lab</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" type="button">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <nav class="main-nav" aria-label="Primary navigation">
+        <ul>
+          <li><a href="/the-reverie/index.html">Home</a></li>
+          <li><a href="/the-reverie/pages/research/index.html">Research</a></li>
+          <li><a href="/the-reverie/pages/lab/index.html">Civic Lab</a></li>
+          <li><a href="/the-reverie/pages/altius/index.html">ALTIUS</a></li>
+          <li><a href="/the-reverie/pages/venture/index.html">Venture</a></li>
+          <li><a href="/the-reverie/pages/about/index.html">About</a></li>
+          <li><a href="/the-reverie/pages/about/references.html">References</a></li>
+          <li>
+            <a href="https://syndorzaldrizes.github.io/Syndor/" target="_blank" rel="noopener">MSL ↗</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
   <main id="main">
     <section class="hero page-hero">
@@ -77,15 +105,15 @@
         </p>
 
         <p class="crumbs">
-          <a href="../../index.html">Home</a> / Research
+          <a href="/the-reverie/index.html">Home</a> / Research
         </p>
 
         <div class="actions-row" aria-label="Primary research actions">
           <a class="btn primary" href="dissertation.html">Dissertation page</a>
           <a class="btn" href="journal-memo.html">Journal memo</a>
-          <a class="btn" href="../lab/">Civic Lab</a>
-          <a class="btn" href="../altius/">ALTIUS</a>
-          <a class="btn" href="../../about/references.html">References</a>
+          <a class="btn" href="/the-reverie/pages/lab/index.html">Civic Lab</a>
+          <a class="btn" href="/the-reverie/pages/altius/index.html">ALTIUS</a>
+          <a class="btn" href="/the-reverie/pages/about/references.html">References</a>
         </div>
       </div>
     </section>
@@ -150,9 +178,9 @@
               agency/behavior prototype that sits between.
             </p>
             <div class="actions-row" aria-label="Connection links">
-              <a class="btn" href="../lab/">Go to Civic Lab</a>
-              <a class="btn" href="../altius/">Go to ALTIUS</a>
-              <a class="btn" href="../../about/references.html">Citations / References</a>
+              <a class="btn" href="/the-reverie/pages/lab/index.html">Go to Civic Lab</a>
+              <a class="btn" href="/the-reverie/pages/altius/index.html">Go to ALTIUS</a>
+              <a class="btn" href="/the-reverie/pages/about/references.html">Citations / References</a>
             </div>
           </article>
         </div>
@@ -172,7 +200,7 @@
           </div>
 
           <div class="actions-row" style="margin-top: 12px;">
-            <a class="btn small" href="../../index.html">Back home</a>
+            <a class="btn small" href="/the-reverie/index.html">Back home</a>
             <a class="btn small" href="#top">Top</a>
           </div>
         </aside>
@@ -180,7 +208,11 @@
     </section>
   </main>
 
-  <!-- Shared footer injected by site.js -->
-  <div data-include="footer"></div>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>© <span id="year"></span> The Reverie.</p>
+      <p>Built as a civic research and lab hub.</p>
+    </div>
+  </footer>
 </body>
 </html>

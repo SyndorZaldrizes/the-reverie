@@ -10,10 +10,10 @@
   />
 
   <!-- Shared theme -->
-  <link rel="stylesheet" href="../../assets/css/site.css" />
+  <link rel="stylesheet" href="/the-reverie/assets/css/site.css" />
 
-  <!-- Shared behavior: header/footer injection, nav toggle, year -->
-  <script src="../../assets/js/site.js" defer></script>
+  <!-- Shared behavior: nav toggle, year -->
+  <script src="/the-reverie/assets/js/site.js" defer></script>
 
   <style>
     /* Page-specific layout (kept minimal; site.css remains the source of truth) */
@@ -77,8 +77,36 @@
 </head>
 
 <body class="theme-galaxy">
-  <!-- Shared header injected by site.js -->
-  <div data-include="header"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand-link" href="/the-reverie/index.html">
+        <span class="brand-title">The Reverie</span>
+        <span class="brand-sub">Civic Research + Civic Lab</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" type="button">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <nav class="main-nav" aria-label="Primary navigation">
+        <ul>
+          <li><a href="/the-reverie/index.html">Home</a></li>
+          <li><a href="/the-reverie/pages/research/index.html">Research</a></li>
+          <li><a href="/the-reverie/pages/lab/index.html">Civic Lab</a></li>
+          <li><a href="/the-reverie/pages/altius/index.html">ALTIUS</a></li>
+          <li><a href="/the-reverie/pages/venture/index.html">Venture</a></li>
+          <li><a href="/the-reverie/pages/about/index.html">About</a></li>
+          <li><a href="/the-reverie/pages/about/references.html">References</a></li>
+          <li>
+            <a href="https://syndorzaldrizes.github.io/Syndor/" target="_blank" rel="noopener">MSL ↗</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
   <main id="main">
     <section class="hero page-hero">
@@ -90,14 +118,15 @@
         </p>
 
         <p class="crumbs">
-          <a href="../../index.html">Home</a> / <a href="./">Research</a> / Dissertation
+          <a href="/the-reverie/index.html">Home</a> /
+          <a href="/the-reverie/pages/research/index.html">Research</a> / Dissertation
         </p>
 
         <div class="actions-row">
-          <a class="btn primary" href="./">Back to Research Hub</a>
-          <a class="btn" href="../lab/">Civic Lab</a>
-          <a class="btn" href="../altius/">ALTIUS</a>
-          <a class="btn" href="../../about/references.html">References</a>
+          <a class="btn primary" href="/the-reverie/pages/research/index.html">Back to Research Hub</a>
+          <a class="btn" href="/the-reverie/pages/lab/index.html">Civic Lab</a>
+          <a class="btn" href="/the-reverie/pages/altius/index.html">ALTIUS</a>
+          <a class="btn" href="/the-reverie/pages/about/references.html">References</a>
         </div>
 
         <p class="meta">
@@ -346,7 +375,7 @@
               <h2>References (Draft)</h2>
               <p>
                 Working bibliography for this draft. Full site references live on the
-                <a href="../../about/references.html">References page</a>.
+                <a href="/the-reverie/pages/about/references.html">References page</a>.
               </p>
               <ul>
                 <li>Bennion, E. A., &amp; Nickerson, D. W. (2016). A field experiment testing voter registration in college classrooms. <em>PS: Political Science &amp; Politics</em>.</li>
@@ -425,7 +454,11 @@
     </section>
   </main>
 
-  <!-- Shared footer injected by site.js -->
-  <div data-include="footer"></div>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>© <span id="year"></span> The Reverie.</p>
+      <p>Built as a civic research and lab hub.</p>
+    </div>
+  </footer>
 </body>
 </html>

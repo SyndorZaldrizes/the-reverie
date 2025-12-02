@@ -70,7 +70,7 @@ body.theme-galaxy::before{
   inset: 0;
   pointer-events: none;
   opacity: 0.22;
-  background-image: url("../img/bg-galaxy.jpg");
+  background-image: url("../img/bg-galaxy1.jpg");
   background-size: cover;
   background-position: center;
   filter: saturate(1.1) contrast(1.08);
@@ -354,6 +354,37 @@ body.theme-galaxy::after{
 }
 
 .callout-body{ margin: 0 0 10px; color: var(--muted); }
+
+/* Article layout (used across research pages) */
+main{ display: block; }
+.article{
+  width: min(var(--wrap), calc(100% - 32px));
+  margin: 0 auto;
+  padding: 48px 0;
+  position: relative;
+  z-index: 1;
+}
+.article-header{ margin-bottom: 16px; }
+.article-header h1{ margin: 6px 0 10px; font-size: clamp(1.6rem, 2.5vw, 2.5rem); }
+.eyebrow{
+  display: inline-block;
+  color: var(--accent2);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  margin-bottom: 6px;
+}
+.article-meta{ margin: 0 0 10px; color: var(--muted); }
+.article-meta.small{ color: var(--faint); font-size: 0.95rem; }
+.article-content{ display: grid; gap: 16px; }
+.article-content section{
+  padding: 16px;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border);
+  background: linear-gradient(135deg, rgba(245,197,66,0.04), rgba(16,18,26,0.86));
+  box-shadow: var(--shadow);
+}
+.article-content h2{ margin: 0 0 10px; font-size: 1.25rem; }
 
 /* Footer */
 .site-footer{
